@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'AppSet.dart';
 
 class ExpansionList extends StatelessWidget {
 
@@ -20,6 +23,7 @@ class Item {
   final String title;
   final List<Item> children;
   Item(this.title, [this.children = const <Item>[]]);
+
 }
 
 final List<Item> data = <Item>[
@@ -78,9 +82,6 @@ final List<Item> data = <Item>[
   Item(
     '채용안내'
   ),
-  Item(
-    '앱 설정'
-  ),
 ];
 
 class EntryItem extends StatelessWidget{
@@ -90,8 +91,8 @@ class EntryItem extends StatelessWidget{
   Widget _buildTiles(Item root){
     if(root.children.isEmpty){
       return ListTile(
+        tileColor: Colors.white,
         title:Text(root.title),
-
       );
     }
     return ExpansionTile(
@@ -100,6 +101,7 @@ class EntryItem extends StatelessWidget{
       title : Text(root.title),
       children : root.children.map<Widget>(_buildTiles).toList(),
     );
+
   }
 
   @override

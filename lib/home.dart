@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:msmart_app/Online.dart';
 import 'package:msmart_app/TopNav.dart';
 import 'DropDownMenuButton.dart';
-
+import './BottomNav.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -26,10 +26,11 @@ class _HomeState extends State<Home> {
             Container(
               child:Expanded(
                 child: ListView(
+                  padding: EdgeInsets.fromLTRB(0,15,0,0),
                   scrollDirection: Axis.vertical,
                   children:<Widget>[
-                    Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                      child: Image.asset('img/2.jpg'),
+                    Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                      child: Image.asset('img/home.jpg'),
                     ),
 
                     Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 1),
@@ -40,16 +41,13 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-
-            children: [
-              Image.asset('img/bottom.png', width:390),
-            ],
+          Container(
+            child: BottomNav(),
           )
           ],
         )
     );
   }
 }
+
 

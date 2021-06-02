@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'BottomNav.dart';
 import 'TopNav.dart';
 
 class OnlinePage extends StatefulWidget {
@@ -21,22 +22,23 @@ class _OnlineState extends State<OnlinePage> {
                 ),
                 Expanded(
                   child: ListView(
+                    padding: EdgeInsets.all(0),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     children: [
                       Container(
-                        child:Text('    카테고리' , style: TextStyle(fontSize: 12, fontWeight: FontWeight.w100),),
-                      ),
-                      Container(
-                        child : Image.asset('img/on_cat.png', width:380) ,
-                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child : Image.asset('img/on_cat.jpg', width:380) ,
+                        margin: EdgeInsets.all(0),
                       ),
                       Container(
                         child : Image.asset('img/on.jpg'),
                       ),
                     ],
                   ),
-                )
+                ),
+                Container(
+                  child: BottomNav(),
+                ),
               ]
           )
       );
