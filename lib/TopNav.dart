@@ -2,11 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'DropDownMenuButton.dart';
 import 'package:msmart_app/Online.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 import 'Offline.dart';
 import 'home.dart';
 
 class TopNav extends StatelessWidget {
+
+  AudioCache player = new AudioCache();
+
   @override
   build(BuildContext context) {
     return Material(
@@ -81,19 +85,21 @@ class TopNav extends StatelessWidget {
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(0),
                 onPressed: () {
+                  player.play("voice.mp3", volume: 1.0);
+                  // _voicePlay();
                   showDialog(
                       context: context,
                       barrierDismissible: true,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: Text("원하는 검색어를 말하세요."),
+                          title: Text("원하시는 검색어를 말씀하세요."),
                           content: SingleChildScrollView(
                               child: ListBody(children: <Widget>[
-                            IconButton(
-                              icon: Icon(Icons.mic),
-                              iconSize: 100,
-                            ),
-                            Text("음성 인식중...", textAlign: TextAlign.center),
+                                IconButton(
+                                  icon: Icon(Icons.mic),
+                                  iconSize: 100,
+                                ),
+                                Text("음성 인식중...", textAlign: TextAlign.center),
                           ])),
                         );
                       });
@@ -172,4 +178,9 @@ class TopNav extends StatelessWidget {
       ]),
     );
   }
+  _voicePlay() async{
+    const voice = "voice.mp3";
+    player.play(voice);
+  }
 }
+
